@@ -19,7 +19,7 @@ class Window:
         self.nationstates_label = tkinter.Label(self.nationstates_frame, text="Nationstates")
         self.nationstates_label.pack()
         
-        nation_name = ""
+        nation_name = "placeholder"
         
         # make a label that holds the name of the nation
         self.nationstates_name_label = tkinter.Label(self.nationstates_frame, text=nation_name)
@@ -41,5 +41,8 @@ class Window:
     def run(self):
         self.nationstates()
         self.root.mainloop()
+        e = "e"
+        return e
+    
         
 window = Window("Nationstates", 500, 500).run()
