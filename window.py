@@ -45,4 +45,4 @@ class Window:
         return e
     
         
-window = Window("Nationstates", 500, 500).run()
+window = Window("Nationstates", 1000 , 500).run()
