@@ -9,37 +9,39 @@ class Window:
         self.root = tkinter.Tk()
         self.root.title(self.title)
         self.root.geometry(f"{self.width}x{self.height}")
+        #make the window frameless
+        self.root.overrideredirect(True) 
+        #add a background colour
+        self.root.configure(bg='#7FFFD4')
         
     def nationstates(self):
-        # make a frame
-        self.nationstates_frame = tkinter.Frame(self.root)
-        self.nationstates_frame.pack()
+        # Create a large label
+        label = tkinter.Label(self.root, text="Mindoorian Hub!", font=("Arial", 24), fg="black", bg="#7FFFD4")
+        label.place(relx=0.5, rely=0.2, anchor="center")
+
+        # Create a small label
+        label = tkinter.Label(self.root, text="Enter your username", font=("Times", 16), fg="black", bg="#7FFFD4")
+        label.place(relx=0.5, rely=0.4, anchor="center")
         
-        # make a label
-        self.nationstates_label = tkinter.Label(self.nationstates_frame, text="Nationstates")
-        self.nationstates_label.pack()
-        
-        nation_name = ""
-        
-        # make a label that holds the name of the nation
-        self.nationstates_name_label = tkinter.Label(self.nationstates_frame, text=nation_name)
-        self.nationstates_name_label.pack()
-    
-        # make text entry
-        self.nationstates_entry = tkinter.Entry(self.nationstates_frame)
-        self.nationstates_entry.pack()
-        
-        # make a button to submit the entry to the nationstates module
-        self.nationstates_button = tkinter.Button(self.nationstates_frame, text="Submit", command=self.nationstates_submit)
-        self.nationstates_button.pack()
+        # Add an entry thign to the window
+        entry = tkinter.Entry(self.root, font=("Arial", 16), fg="black", bg="white")
+        entry.place(relx=0.5, rely=0.5, anchor="center")
+
+        # Add a button to the window
+        button = tkinter.Button(self.root, text="Submit", font=("Arial", 13), fg="white", bg="grey", command=lambda: print(entry.get()))
+        button.place(relx=0.5, rely=0.6, anchor="center")
         
     def nationstates_submit(self):
-        nation_name = self.nationstates_entry.get()
-        nation = nationstates.Nationstates(nation_name)
-        self.nationstates_name_label.config(text=nation.get_nation_name())
+        #nation_name = self.nationstates_entry.get()
+        #nation = nationstates.Nationstates(nation_name)
+        #self.nationstates_name_label.config(text=nation.get_nation_name())
+        pass
         
     def run(self):
         self.nationstates()
         self.root.mainloop()
+        e = "e"
+        return e
+    
         
-window = Window("Nationstates", 500, 500).run()
+window = Window("Nationstates", 1100 , 575).run()
